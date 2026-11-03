@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>Best Startup Loans</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f1f5f9;
+  font-family: Arial, sans-serif;
+  Blue and white : #172033;
+}
+
+Best Startup Loans{
+  text-align: center;
+  padding: 35px 10px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #1764a5;
+}
+
+.container {
+  background: white;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 30px 22px;
+  border-radius: 25px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 34px;
+}
+
+.USA Loans {
+  text-align: center;
+  color: #777;
+  line-height: 1.6;
+}
+
+.calculator {
+  background: #f7f8fa;
+  padding: 22px;
+  border-radius: 18px;
+  margin-top: 30px;
+}
+
+.value {
+  color: #2864db;
+  font-size: 25px;
+  font-weight: bold;
+  float: right;
+}
+
+input[type=range] {
+  width: 100%;
+  accent-color: #2864db;
+  margin: 20px 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+input[type=text],
+input[type=tel] {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.result {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  line-height: 2;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  background: #2864db;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 17px;
+  margin-top: 20px;
+}
+
+.small {
+  color: #777;
+  font-size: 12px;
+  line-height: 1.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>Best Startup Loans</header>
+
+<div class="container">
+
+<h1>Explore Your Loan Options</h1>
+
+<p class="subtitle">
+Flexible repayment options and transparent
+loan information.
+</p>
+
+<div class="calculator">
+
+<h2>Loan Calculator</h2>
+
+<label>Loan Amount:
+<span class="value" id="amountText">$5,000</span>
+</label>
+
+<input type="range" id="amount"
+min="100" max="10000" step="100"
+value="5000">
+
+<label>Loan Term:
+<span class="value" id="termText">12 months</span>
+</label>
+
+<input type="range" id="term"
+min="6" max="60" step="6" value="12">
+
+<div class="result">
+Monthly estimate:
+<strong id="monthly">$0</strong>
+<br>
+Total repayment:
+<strong id="total">$0</strong>
+<p class="small">
+Illustrative estimate at 8 % annual interest.
+Actual terms require a formal agreement.
+</p>
+</div>
+
+</div>
+
+<h2>Loan Application</h2>
+
+<form id="application">
+
+<label>Full Name</label>
+<input type="text" id="name"
+placeholder="Enter your full name" required>
+
+<label>Mobile Number</label>
+<input type="tel" id="phone"
+placeholder="Enter your phone number" required>
+
+<p class="small">
+Your information will only be shared with
+the lending company for application purposes.
+Never enter your banking password, mobile
+money PIN or OTP.
+</p>
+
+<button type="submit">
+Submit Application
+</button>
+
+</form>
+
+</div>
+
+<script>
+const amount = document.getElementById("amount");
+const term = document.getElementById("term");
+
+function calculate() {
+  const principal = Number(amount.value);
+  const months = Number(term.value);
+  const rate = 0.12 / 12;
+
+  const payment =
+    principal * rate /
+    (1 - Math.pow(1 + rate, -months));
+
+  document.getElementById("amountText")
+    .textContent = "$" + principal.toLocaleString();
+
+  document.getElementById("termText")
+    .textContent = months + " months";
+
+  document.getElementById("monthly")
+    .textContent = "$" + payment.toFixed(2);
+
+  document.getElementById("total")
+    .textContent = "$" + (payment * months).toFixed(2);
+}
+
+amount.addEventListener("input", calculate);
+term.addEventListener("input", calculate);
+calculate();
+
+document.getElementById("application")
+.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+
+  const message =
+    "Loan application enquiry\n" +
+    "Name: " + name + "\n" +
+    "Phone: " + phone;
+
+  // Replace with your official company WhatsApp number.
+  const companyNumber = "COUNTRYCODEPHONENUMBER";
+
+  window.open(
+    "https://wa.me/" + companyNumber +
+    "?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+});
+</script>
+
+</body>
+</html>
